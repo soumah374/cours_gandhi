@@ -3,8 +3,15 @@ from django.shortcuts import render
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Bonjour le monde")
+    context = {'salutation': "Bonjour la classe"}
+    return render(request,"index.html",context)
+
+def salutation(request,nom,annee):
+    context = {'nom': nom, 
+               'annee': annee
+              }
+    return render(request,"index.html",context)
 
 
 def store(request):
-    return HttpResponse("Bonsoir le monde")
+    return HttpResponse(request,"Bonsoir le monde")
